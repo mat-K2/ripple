@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_filter :load_group, :only => %w(new create)
+  before_filter :load_group, :only => %w(new show create)
 
   def index
     @services = Service.all
@@ -7,6 +7,10 @@ class ServicesController < ApplicationController
 
   def new
     @service = @group.services.build
+  end
+
+  def show
+    @service = @group.services.find(params[:id])
   end
 
   def create

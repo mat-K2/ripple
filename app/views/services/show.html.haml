@@ -1,0 +1,19 @@
+%h1 サービス詳細
+= link_to "グループ詳細に戻る", group_path(@group)
+
+%table
+  %tr
+    %th サービス名
+    %td= @service.name
+  %tr
+    %th URL
+    %td= @service.url
+  %tr
+    %th サマリー
+    %td= @service.summary
+  %tr
+    %th 紹介文
+    %td= @service.introduction
+  %tr
+    %th カテゴリー
+    %td= @service.category
