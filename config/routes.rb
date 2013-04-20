@@ -1,6 +1,10 @@
 Ripple::Application.routes.draw do
   resources :services
 
+  resources :groups do
+    resources :services
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
