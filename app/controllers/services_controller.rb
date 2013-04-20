@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_filter :load_group, :only => %w(new show create)
-
+  skip_before_filter :authenticate_user!, :only => %w(index)
   def index
     @services = Service.all
   end

@@ -13,6 +13,7 @@ end
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'sass'
+gem 'devise'
 
 group :development, :test do
   gem 'debugger'

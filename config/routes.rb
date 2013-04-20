@@ -1,4 +1,6 @@
 Ripple::Application.routes.draw do
+  devise_for :users
+
   resources :services
 
   resources :groups do
