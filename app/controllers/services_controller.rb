@@ -1,12 +1,11 @@
 class ServicesController < ApplicationController
-  before_filter :load_group, :only => %w(new show create)
   skip_before_filter :authenticate_user!, :only => %w(index)
   def index
     @services = Service.all
   end
 
   def new
-    @service = @group.services.build
+    @service = Service.new
   end
 
   def show
@@ -14,17 +13,13 @@ class ServicesController < ApplicationController
   end
 
   def create
-    @service = @group.services.build(params[:service])
+    @service = Service.new(params[:service])
+    @service.make_users.build(:user_id => current_user.id)
 
     if @service.save
-      redirect_to group_path(@group)
+      redirect_to make_service_path(@service)
     else
-      redirect_to new_group_service(@group)
+      render "new"
     end
-  end
-
-private
-  def load_group
-    @group = Group.find(params[:group_id])
   end
 end

@@ -3,7 +3,7 @@ Ripple::Application.routes.draw do
 
   resources :services
 
-  resources :groups do
+  namespace :make do
     resources :services
   end
 

@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  has_many :make_users
+  has_many :services, :through => :make_users
+
+  def make_user?
+    MakeUser.where(:user_id => self.id).present?
+  end
 end

@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420134530) do
+ActiveRecord::Schema.define(:version => 20130420144538) do
 
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.integer  "account_limit"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+  create_table "make_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "service_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "services", :force => true do |t|
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20130420134530) do
     t.string   "summary"
     t.text     "introduction"
     t.string   "category"
-    t.integer  "group_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "account_limit"
   end
 
   create_table "test_accounts", :force => true do |t|
