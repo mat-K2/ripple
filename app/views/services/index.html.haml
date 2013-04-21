@@ -1,18 +1,16 @@
 .hero-unit
   %h2 おすすめサービス
   - @hot_services.each do |service|
-    = link_to service.name
+    = link_to service.name, service_path(service)
 
 .row
   .span4
-    %h3 ビジネス
-    - @business.each do |service|
-      = link_to service.name, service_path(service)
-  .span4
     %h3 教育
-    - @education.each do |service|
-      = link_to service.name, service_path(service)
+    %ul
+      - @education.each do |service|
+        %li= link_to service.name, service_path(service)
   .span4
-    %h3 音楽
-    - @music.each do |service|
-      = link_to service.name, service_path(service)
+    %h3 生活
+    %ul
+      - @life.each do |service|
+        %li= link_to service.name, service_path(service)

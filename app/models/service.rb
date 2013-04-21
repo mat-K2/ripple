@@ -4,17 +4,13 @@ class Service < ActiveRecord::Base
   has_many :users, :through => :make_users
   has_many :entries
 
-  CATEGORY_LIST = %w(business education music).freeze
-
-  scope :business_services, lambda{
-    where(:category => "business")
-  }
+  CATEGORY_LIST = %w(education life).freeze
 
   scope :educational_services, lambda{
     where(:category => "education")
   }
 
-  scope :music_services, lambda{
-    where(:category => "music")
+  scope :life_services, lambda{
+    where(:category => "life")
   }
 end
