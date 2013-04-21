@@ -6,10 +6,9 @@
     .well
       %p
         チャット
-        - @entries.each do |entry|
-          = entry.user.name
-          = entry.content
-        = form_for @entry do |f|
+        #entry_chat
+          = render "entry_chat"
+        = form_for @entry, :remote => true do |f|
           = f.text_area :content
           = f.hidden_field :service_id, :value => @service.id
           = f.submit "書き込む", :class => "btn"
