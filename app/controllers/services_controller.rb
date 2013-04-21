@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
   end
 
   def show
-    @service = @group.services.find(params[:id])
+    @service = Service.find(params[:id])
+    @iframe_url = params[:url]
   end
 end

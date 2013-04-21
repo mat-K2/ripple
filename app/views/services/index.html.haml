@@ -7,12 +7,12 @@
   .span4
     %h3 ビジネス
     - @business.each do |service|
-      = link_to service.name
+      = link_to service.name, service_path(service)
   .span4
     %h3 教育
     - @education.each do |service|
-      = link_to service.name
+      = link_to service.name, service_path(service)
   .span4
     %h3 音楽
     - @music.each do |service|
-      = link_to service.name
+      = link_to service.name, service_path(service)

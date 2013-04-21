@@ -1,0 +1,21 @@
+.page-header
+  %h2= @service.name
+
+.row-fluid
+  .span3
+    .well
+      chat
+      開発者情報
+  .span9
+    = form_tag service_path(@service), :method => "get" do
+      = hidden_field_tag :url, @service.url
+      = submit_tag "利用する", :class => "btn"
+    %p.main-frame
+      - if @iframe_url
+        %iframe{:height => 1000, :width => "100%", :src => @iframe_url}
+      - else
+        サマリー
+        = @service.summary
+        %br
+        紹介文
+        = @service.introduction
