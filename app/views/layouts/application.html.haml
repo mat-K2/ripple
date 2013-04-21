@@ -1,0 +1,26 @@
+!!!
+%html
+
+  %head
+    %title
+      Ripple
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          = link_to "Ripple", services_path, :class => "brand"
+          .nav-collapse.collapse
+            - if user_signed_in?
+              %ul.nav
+                %li
+                  = link_to "Home", services_path
+                %li
+                  = link_to "開発者向け", make_services_path
+              = link_to "ログアウト", destroy_user_session_path, :class => "btn pull-right", :method => "delete"
+            - else
+              = link_to "ログイン", new_user_session_path, :class => "btn pull-right" unless user_signed_in?
+    .container
+      = yield

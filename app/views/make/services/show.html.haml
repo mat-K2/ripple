@@ -1,19 +1,26 @@
-%h1 サービス詳細
-= link_to "開発中のサービス一覧に戻る", make_services_path
+.page-header
+  %h2 サービス詳細
+%p
+  = link_to "<< 開発中のサービス一覧に戻る", make_services_path, :class => "btn"
 
-%table
-  %tr
-    %th サービス名
-    %td= @service.name
-  %tr
-    %th URL
-    %td= @service.url
-  %tr
-    %th サマリー
-    %td= @service.summary
-  %tr
-    %th 紹介文
-    %td= @service.introduction
-  %tr
-    %th カテゴリー
-    %td= @service.category
+%table.table.table-bordered
+  %thead
+    %tr
+      %th 項目
+      %th 内容
+  %tbody  
+    %tr
+      %td サービス名
+      %td= @service.name
+    %tr
+      %td URL
+      %td= @service.url
+    %tr
+      %td サマリー
+      %td= @service.summary
+    %tr
+      %td 紹介文
+      %td= @service.introduction
+    %tr
+      %td カテゴリー
+      %td= @service.category

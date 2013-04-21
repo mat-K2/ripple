@@ -1,13 +1,22 @@
-%h2 開発中のサービス一覧
-= link_to "サービス一覧に戻る", services_path
+.page-header
+  %h2 開発中のサービス一覧
+%p
+  = link_to "<< ホームに戻る", services_path, :class => "btn"
 
-%table
-  %tr
-    %th サービス名
-    %th URL
-
-  - @services.each do |service|
+%table.table.table-bordered.table-striped
+  %thead
     %tr
-      %td= service.name
-      %td= service.url
-      %td= link_to "詳細", make_service_path(service.id)
+      %th #
+      %th サービス名
+      %th URL
+      %th
+
+  %tbody
+    - @services.each_with_index do |service, i|
+      %tr
+        %td= i + 1
+        %td= service.name
+        %td= service.url
+        %td= link_to "詳細", make_service_path(service.id)
+
+= link_to "サービス新規登録", new_make_service_path, :class => "btn"

@@ -1,11 +1,18 @@
-%h1 サービス一覧
-- @services.each do |service|
-  = link_to service.name
+.hero-unit
+  %h2 おすすめサービス
+  - @hot_services.each do |service|
+    = link_to service.name
 
-- if user_signed_in?
-  = link_to "ログアウト", destroy_user_session_path, :method => "delete" if user_signed_in?
-  = link_to "サービス新規登録", new_service_path
-  = link_to "サービス提供ユーザー用画面", make_services_path if current_user.make_user?
-
-- else
-  = link_to "ログイン", new_user_session_path unless user_signed_in?
+.row
+  .span4
+    %h3 ビジネス
+    - @business.each do |service|
+      = link_to service.name
+  .span4
+    %h3 教育
+    - @education.each do |service|
+      = link_to service.name
+  .span4
+    %h3 音楽
+    - @music.each do |service|
+      = link_to service.name
