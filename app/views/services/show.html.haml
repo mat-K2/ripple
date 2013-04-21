@@ -5,7 +5,9 @@
   .span3
     .well
       chat
-      開発者情報
+      サービス提供者情報
+      - @make_users.each do |make_user|
+        = make_user.name
   .span9
     = form_tag service_path(@service), :method => "get" do
       = hidden_field_tag :url, @service.url
