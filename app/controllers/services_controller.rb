@@ -10,6 +10,8 @@ class ServicesController < ApplicationController
   def show
     @service = Service.find(params[:id])
     @make_users = @service.users
+    @entry = current_user.entries.build
+    @entries = @service.entries
     @iframe_url = params[:url]
   end
 end

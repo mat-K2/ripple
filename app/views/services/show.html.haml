@@ -4,10 +4,19 @@
 .row-fluid
   .span3
     .well
-      chat
-      サービス提供者情報
-      - @make_users.each do |make_user|
-        = make_user.name
+      %p
+        チャット
+        - @entries.each do |entry|
+          = entry.user.name
+          = entry.content
+        = form_for @entry do |f|
+          = f.text_area :content
+          = f.hidden_field :service_id, :value => @service.id
+          = f.submit "書き込む", :class => "btn"
+      %p
+        サービス提供者情報
+        - @make_users.each do |make_user|
+          = make_user.name
   .span9
     = form_tag service_path(@service), :method => "get" do
       = hidden_field_tag :url, @service.url

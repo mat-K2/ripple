@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :make_users
   has_many :services, :through => :make_users
+  has_many :entries
 
   def make_user?
     MakeUser.where(:user_id => self.id).present?
