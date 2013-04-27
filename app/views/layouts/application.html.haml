@@ -20,6 +20,9 @@
                 %li
                   = link_to "開発者向け", make_services_path
               = link_to "ログアウト", destroy_user_session_path, :class => "btn pull-right", :method => "delete"
+              .navbar-text.pull-right
+                ログインユーザー：
+                = current_user.name
             - else
               = link_to "ログイン", new_user_session_path, :class => "btn pull-right" unless user_signed_in?
     .container

@@ -14,7 +14,7 @@ class ServicesController < ApplicationController
     @entry = current_user.entries.build
     @entries = @service.entries
 
-    if @iframe_url = params[:url]
+    if (@iframe_url = params[:url]) && (@iframe_url.present?)
       ServiceAppClient.new(@iframe_url).login(current_user.email, current_user.encrypted_password)
     end
   end

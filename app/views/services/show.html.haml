@@ -5,17 +5,18 @@
   .span3
     .well
       %p
-        チャット
+        %h5 サービス提供者情報
+        - @make_users.each do |make_user|
+          = make_user.name
+      %br
+      %br
+      %p
         #entry_chat
           = render "entry_chat"
         = form_for @entry, :remote => true do |f|
-          = f.text_area :content
+          = f.text_area :content, :class => "chat-box"
           = f.hidden_field :service_id, :value => @service.id
           = f.submit "書き込む", :class => "btn"
-      %p
-        サービス提供者情報
-        - @make_users.each do |make_user|
-          = make_user.name
   .span9
     = form_tag service_path(@service), :method => "get" do
       = hidden_field_tag :url, @service.url
