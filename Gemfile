@@ -14,6 +14,8 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'sass'
 gem 'devise'
+gem 'faraday'
+gem "faraday_middleware"
 
 group :development, :test do
   gem 'debugger'
