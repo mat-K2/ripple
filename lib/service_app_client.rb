@@ -7,14 +7,15 @@ class ServiceAppClient
   end
 
   def login(email, password)
-    @conn.post do |req|
-      req.url '/ripple/sessions/create'
-      req.body = {
-        :session => {
-          email: email,
-          password: password
-        }
-      }.to_json
-    end
+    # @conn.get do |req|
+    #   req.url '/ripple/sessions/create'
+    #   req.body = {
+    #     :session => {
+    #       email: email,
+    #       password: password
+    #     }
+    #   }.to_json
+    # end
+    @conn.get
   end
 end
