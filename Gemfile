@@ -12,8 +12,6 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'sass'
 gem 'devise'
-gem 'faraday'
-gem "faraday_middleware"
 
 group :production do
   gem 'pg'

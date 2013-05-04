@@ -1,5 +1,3 @@
-require 'service_app_client'
-
 class ServicesController < ApplicationController
   skip_before_filter :authenticate_user!, :only => %w(index)
   def index
@@ -13,9 +11,6 @@ class ServicesController < ApplicationController
     @make_users = @service.users
     @entry = current_user.entries.build
     @entries = @service.entries
-
-    if (@iframe_url = params[:url]) && (@iframe_url.present?)
-      ServiceAppClient.new(@iframe_url).login(current_user.email, current_user.encrypted_password)
-    end
+    @iframe_url = params[:url]
   end
 end
