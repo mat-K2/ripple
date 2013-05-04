@@ -1,6 +1,11 @@
 .page-header
   %h2= @service.name
-
+  - if current_user.favorite?(@service)
+    = form_for [@service, @favorite], :url => service_favorite_path(@service, @favorite), :method => "delete" do |f|
+      = f.submit "お気に入りから外す", :class => "btn btn-danger"
+  - else
+    = form_for [@service, @favorite], :url => service_favorites_path(@service) do |f|
+      = f.submit "お気に入りに追加する", :class => "btn btn-primary"
 .row-fluid
   .span3
     .well

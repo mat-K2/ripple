@@ -1,7 +1,9 @@
 Ripple::Application.routes.draw do
   devise_for :users
 
-  resources :services
+  resources :services do
+    resources :favorites, :only => %w[create destroy]
+  end
 
   namespace :make do
     resources :services

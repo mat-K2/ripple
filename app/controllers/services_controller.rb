@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
     @make_users = @service.users
     @entry = current_user.entries.build
     @entries = @service.entries
+    @favorite = current_user.favorites.find_by_service_id(params[:id]) || current_user.favorites.build
     @iframe_url = params[:url]
   end
 end

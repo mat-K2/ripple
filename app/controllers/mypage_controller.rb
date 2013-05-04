@@ -3,6 +3,7 @@ class MypageController < ApplicationController
   before_filter :redirect_unsigned_user_to_services
 
   def index
+    @favorites = current_user.favorite_services
   end
 
 private
