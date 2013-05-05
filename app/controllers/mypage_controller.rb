@@ -4,7 +4,7 @@ class MypageController < ApplicationController
 
   def index
     @favorites = current_user.favorite_services
-    @entry = Entry.all
+    @entry = Entry.order("created_at DESC")
   end
 
 private

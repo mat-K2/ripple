@@ -1,14 +1,19 @@
 %h1 マイページ
 
-%h3 お気に入り
-- @favorites.each do |service|
-  = link_to service.name, service_path(service.id)
+.row-fluid
+  .span9
+    %h3
+      お気に入り
+      = link_to "サービス一覧", services_path, :class => "btn"
+    - @favorites.each do |service|
+      = link_to service.name, service_path(service.id)
 
-タイムライン
-- @entry.each do |entry|
-  = link_to entry.service_name, service_path(entry.service_id)
-  = entry.content
-  = entry.user_name
-
-%p
-  = link_to "アプリを探す", services_path
+  .span3
+    %table.table.table-bordered.table-striped
+      %tbody
+        - @entry.each do |entry|
+          %tr
+            %td= link_to entry.service_name, service_path(entry.service_id)
+            %td
+              %h5= entry.user_name
+              = entry.content
