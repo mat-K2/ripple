@@ -4,6 +4,7 @@ class MypageController < ApplicationController
 
   def index
     @favorites = current_user.favorite_services
+    @entry = Entry.all
   end
 
 private

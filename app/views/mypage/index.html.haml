@@ -4,5 +4,11 @@
 - @favorites.each do |service|
   = link_to service.name, service_path(service.id)
 
+タイムライン
+- @entry.each do |entry|
+  = link_to entry.service_name, service_path(entry.service_id)
+  = entry.content
+  = entry.user_name
+
 %p
   = link_to "アプリを探す", services_path
