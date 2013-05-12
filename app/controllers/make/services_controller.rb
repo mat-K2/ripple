@@ -14,6 +14,8 @@ class Make::ServicesController < ApplicationController
   def create
     @service = Service.new(params[:service])
     @service.make_users.build(:user_id => current_user.id)
+    @service.key = [*0..9, *'a'..'z', *'A'..'Z'].sample(20).join
+    @service.secret = [*0..9, *'a'..'z', *'A'..'Z'].sample(40).join
 
     if @service.save
       redirect_to make_service_path(@service)

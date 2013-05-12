@@ -12,6 +12,6 @@ class ServicesController < ApplicationController
     @entry = current_user.entries.build
     @entries = @service.entries
     @favorite = current_user.favorites.find_by_service_id(params[:id]) || current_user.favorites.build
-    @iframe_url = params[:url]
+    @iframe_url = params[:url] ? params[:url] + "/auth/ripple?uid=#{current_user.id}" : nil
   end
 end
