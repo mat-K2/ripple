@@ -25,13 +25,56 @@ body {
 
 .chat-box {
   height: 200px;
-  width: 260px;
-}
-
-.container {
-  width: 1370px !important;
+  width: 94%;
 }
 
 .navbar-text {
   margin-right: 20px;
+}
+
+.table-divided {
+  width: 25%;
+  height: 80px;
+  border: 1px solid #dddddd;
+}
+
+.hot-image {
+  width: 10%;
+  height: 120px;
+  border-right: none;
+}
+
+.hot-desc {
+  width: 40%;
+  height: 120px;
+  border-left: none !important;
+}
+
+.feedback-box {
+  height: 150px;
+}
+
+.feedback-image {
+  width: 20%;
+  border-right: none;
+}
+
+.feedback-desc {
+  width: 80%;
+  border-left: none !important;
+  position: relative;
+}
+
+.feedback-user {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.page-header h2 {
+  display: inline-block;
+}
+
+.table.back-white {
+  background-color: white;
 }

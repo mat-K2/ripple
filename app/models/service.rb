@@ -15,4 +15,9 @@ class Service < ActiveRecord::Base
   scope :life_services, lambda{
     where(:category => "life")
   }
+
+  scope :game_services, lambda{
+    where(:category => "game")
+  }
+
 end

@@ -1,5 +1,10 @@
-%ul
-  - @entries.each do |entry|
-    %li
-      = entry.user.name
-      = entry.content
+%table.table.table-bordered.back-white
+  %tbody
+    - @entries.each do |entry|
+      %tr.feedback-box
+        %td.feedback-desc
+          %p
+            = entry.content
+          .feedback-user
+            = entry.user_name
+            = feedback_time(entry.created_at)

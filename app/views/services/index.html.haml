@@ -1,25 +1,79 @@
-.hero-unit
-  %h2 おすすめサービス
-  - @hot_services.each do |service|
-    = link_to service.name, service_path(service)
-
-.row
-  .span4
-    %h3 教育
-    %ul
-      - @education.each do |service|
-        %li= link_to service.name, service_path(service)
-  .span4
-    %h3 生活
-    %ul
-      - @life.each do |service|
-        %li= link_to service.name, service_path(service)
+.row-fluid
+  .span8
+    - if user_signed_in?
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th{:colspan => 4}
+              - if current_user
+                = "#{current_user.name}さんへのおすすめサービス"
+        %tbody
+          %tr
+            - @hot_services.each_with_index do |service, i|
+              %td.hot-image
+                - if i == 0
+                  = image_tag "deshiel.jpeg"
+                - elsif i == 1
+                  = image_tag "search.jpeg"
+              %td.hot-desc
+                %h5
+                  = link_to service.name, service_path(service)
+                = service.summary
+                %br
+                作成者：
+                = service.users.map{|user| user.name}.join(",")
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th{:colspan => 4}
+            カテゴリ別
+      %tbody
+        %tr
+          %td.table-divided
+            = image_tag "education.jpeg"
+            教育
+          %td.table-divided
+            = image_tag "life.jpeg"
+            生活
+          %td.table-divided
+            = image_tag "game.jpeg"
+            ゲーム
+          %td.table-divided
+            = image_tag "business.jpeg"
+            ビジネス
+        %tr
+          %td.table-divided
+            = image_tag "music.jpeg"
+            ミュージック
+          %td.table-divided
+            = image_tag "weather.jpeg"
+            天気
+          %td.table-divided
+            = image_tag "travel.jpeg"
+            旅行
+          %td.table-divided
+            = image_tag "efficient.jpeg"
+            仕事効率化
+        %tr
+          %td.table-divided
+            = image_tag "finance.jpeg"
+            ファイナンス
   .span4
     %table.table.table-bordered.table-striped
       %tbody
         - @entry.each do |entry|
-          %tr
-            %td= link_to entry.service_name, service_path(entry.service_id)
-            %td
-              %h5= entry.user_name
-              = entry.content
+          %tr.feedback-box
+            %td.feedback-image
+              - if entry.service_name == "Deshiel"
+                = image_tag "deshiel.jpeg"
+              - elsif entry.service_name == "My-Dictionary"
+                = image_tag "search.jpeg"
+              - else
+                = image_tag "lift.jpeg"
+            %td.feedback-desc
+              %h5= link_to entry.service_name, service_path(entry.service_id)
+              %p
+                = entry.content
+              .feedback-user
+                = entry.user_name
+                = feedback_time(entry.created_at)
