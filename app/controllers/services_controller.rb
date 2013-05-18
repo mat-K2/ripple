@@ -4,6 +4,7 @@ class ServicesController < ApplicationController
     @hot_services = [Service.first, Service.last]
     @life = Service.life_services
     @education = Service.educational_services
+    @entry = Entry.order("created_at DESC")
   end
 
   def show
@@ -11,7 +12,6 @@ class ServicesController < ApplicationController
     @make_users = @service.users
     @entry = current_user.entries.build
     @entries = @service.entries
-    @favorite = current_user.favorites.find_by_service_id(params[:id]) || current_user.favorites.build
     @iframe_url = params[:url] ? params[:url] + "/auth/ripple?uid=#{current_user.id}" : nil
   end
 end

@@ -1,9 +1,7 @@
 Ripple::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
 
-  resources :services do
-    resources :favorites, :only => %w[create destroy]
-  end
+  resources :services
 
   namespace :make do
     resources :services
@@ -64,7 +62,7 @@ Ripple::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'mypage#index'
+  root :to => 'services#index'
 
   # See how all your routes lay out with "rake routes"
 

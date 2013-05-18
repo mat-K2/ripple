@@ -16,8 +16,6 @@
             - if user_signed_in?
               %ul.nav
                 %li
-                  = link_to "マイページ", root_path
-                %li
                   = link_to "開発者向け", make_services_path
               = link_to "ログアウト", destroy_user_session_path, :class => "btn pull-right", :method => "delete"
               .navbar-text.pull-right

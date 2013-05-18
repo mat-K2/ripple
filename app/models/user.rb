@@ -12,14 +12,8 @@ class User < ActiveRecord::Base
   has_many :make_users
   has_many :services, :through => :make_users
   has_many :entries
-  has_many :favorites
-  has_many :favorite_services, :through => :favorites, :source => :service
 
   def make_user?
     MakeUser.where(:user_id => self.id).present?
-  end
-
-  def favorite?(service)
-    self.favorite_services.include?(service)
   end
 end

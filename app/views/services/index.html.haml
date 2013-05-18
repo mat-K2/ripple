@@ -14,3 +14,12 @@
     %ul
       - @life.each do |service|
         %li= link_to service.name, service_path(service)
+  .span4
+    %table.table.table-bordered.table-striped
+      %tbody
+        - @entry.each do |entry|
+          %tr
+            %td= link_to entry.service_name, service_path(entry.service_id)
+            %td
+              %h5= entry.user_name
+              = entry.content
