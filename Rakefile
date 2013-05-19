@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Ripple::Application.load_tasks
+Rippler::Application.load_tasks

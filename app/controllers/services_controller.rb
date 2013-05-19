@@ -13,6 +13,6 @@ class ServicesController < ApplicationController
     @make_users = @service.users
     @entry = current_user.entries.build
     @entries = @service.entries.order("created_at DESC")
-    @iframe_url = params[:url] ? params[:url] + "/auth/ripple?uid=#{current_user.id}" : nil
+    @iframe_url = params[:url] ? params[:url] + "/auth/rippler?uid=#{current_user.id}" : nil
   end
 end

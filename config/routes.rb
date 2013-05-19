@@ -1,4 +1,4 @@
-Ripple::Application.routes.draw do
+Rippler::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
 
   resources :services

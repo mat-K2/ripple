@@ -3,7 +3,7 @@
 
   %head
     %title
-      Ripple
+      Rippler
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -11,7 +11,7 @@
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
         .container
-          = link_to "Ripple", root_path, :class => "brand"
+          = link_to "Rippler", root_path, :class => "brand"
           .nav-collapse.collapse
             - if user_signed_in?
               .navbar-text.pull-right
