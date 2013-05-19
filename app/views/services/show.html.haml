@@ -31,3 +31,5 @@
         %h5 サービス提供者情報
         - @make_users.each do |make_user|
           = make_user.name
+
+= subscribe_to "/entries/new"

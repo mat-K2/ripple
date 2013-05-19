@@ -1,2 +1,5 @@
-$("#entry_chat").html("<%= escape_javascript(render 'services/entry_chat') %>");
+<% publish_to "/entries/new" do %>
+  $("#all_entry_chat").html("<%= escape_javascript(render 'services/all_entry_chat') %>");
+  $("#entry_chat").html("<%= escape_javascript(render 'services/entry_chat') %>");
+<% end %>
 $("#entry_content").val("");
