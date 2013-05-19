@@ -1,0 +1,34 @@
+- if user_signed_in?
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th{:colspan => 4}
+          - if current_user
+            = "#{current_user.name}さんへのおすすめサービス"
+    %tbody
+      %tr
+        - @hot_services.each_with_index do |service, i|
+          %td.hot-image
+            - if i == 0
+              = image_tag "deshiel.jpeg"
+            - elsif i == 1
+              = image_tag "search.jpeg"
+          %td.hot-desc
+            %h5
+              = link_to service.name, service_path(service)
+            = service.summary
+            %br
+            作成者：
+            = service.users.map{|user| user.name}.join(",")
+%table.table.table-bordered
+  %thead
+    %tr
+      %th{:colspan => 4}
+        カテゴリ別
+  %tbody
+    - @category_services.each do |service_arr|
+      %tr
+        - service_arr.each do |service|
+          %td.table-divided
+            = image_tag "education.jpeg"
+            = link_to service.name, service_path(service.id)

@@ -8,16 +8,7 @@ class Service < ActiveRecord::Base
 
   CATEGORY_LIST = %w(education life).freeze
 
-  scope :educational_services, lambda{
-    where(:category => "education")
+  scope :category_services, lambda{ |category|
+    where(:category => category)
   }
-
-  scope :life_services, lambda{
-    where(:category => "life")
-  }
-
-  scope :game_services, lambda{
-    where(:category => "game")
-  }
-
 end
