@@ -17,6 +17,9 @@
         %td= i + 1
         %td= service.name
         %td= service.url
-        %td= link_to "詳細", make_service_path(service.id)
+        %td
+          = link_to "詳細", make_service_path(service.id)
+          |
+          = link_to "編集", edit_make_service_path(service.id)
 
 = link_to "サービス新規登録", new_make_service_path, :class => "btn"

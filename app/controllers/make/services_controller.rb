@@ -7,6 +7,10 @@ class Make::ServicesController < ApplicationController
     @service = Service.new
   end
 
+  def edit
+    @service = current_user.services.find(params[:id])
+  end
+
   def show
     @service = current_user.services.find(params[:id])
   end
@@ -21,6 +25,16 @@ class Make::ServicesController < ApplicationController
       redirect_to make_service_path(@service)
     else
       render "new"
+    end
+  end
+
+  def update
+    @service = current_user.services.find(params[:id])
+
+    if @service.update_attributes(params[:service])
+      redirect_to make_service_path(@service)
+    else
+      render "edit"
     end
   end
 end

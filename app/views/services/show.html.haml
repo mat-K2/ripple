@@ -21,10 +21,11 @@
       = form_tag service_path(@service), :method => "get" do
         = hidden_field_tag :url, @service.url
         = submit_tag "利用する", :class => "btn btn-primary"
-      = form_tag service_path(@service), :method => "get" do
-        = hidden_field_tag :url, @service.url
-        = hidden_field_tag :rippler, true
-        = submit_tag "ripplerのIDでログインする", :class => "btn btn-primary"
+      - if @service.oauth_flg
+        = form_tag service_path(@service), :method => "get" do
+          = hidden_field_tag :url, @service.url
+          = hidden_field_tag :rippler, true
+          = submit_tag "ripplerのIDでログインする", :class => "btn btn-primary"
 
     .main-frame
       - if @iframe_url

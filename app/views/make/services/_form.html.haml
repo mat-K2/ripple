@@ -1,0 +1,39 @@
+= form_for ["make", @service], :html => { :class => "form-horizontal" } do |f|
+  .control-group
+    = f.label :name, "サービス名", :class => "control-label"
+    .controls
+      = f.text_field :name
+  .control-group
+    = f.label :url, "URL", :class => "control-label"
+    .controls
+      = f.text_field :url
+  .control-group
+    = f.label :summary, "サマリー", :class => "control-label"
+    .controls
+      = f.text_field :summary
+  .control-group
+    = f.label :introduction, "紹介文", :class => "control-label"
+    .controls
+      = f.text_field :introduction
+  .control-group
+    = f.label :category, "カテゴリー", :class => "control-label"
+    .controls
+      = f.select :category, Service::CATEGORY_LIST
+  .control-group
+    = f.label :category, "oauth連携", :class => "control-label"
+    .controls
+      - if @service.key
+        oauth_key:
+        = @service.key
+        %br/
+        oauth_secret_key:
+        = @service.secret
+        %br/
+        = f.check_box :oauth_flg, {}, true, false
+        テスト完了
+      - else
+        = check_box_tag "oauth"
+        oauthキーを発行する
+  .control-group
+    .controls
+      = f.submit "登録", :class => "btn btn-primary"

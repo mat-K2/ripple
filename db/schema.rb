@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518002049) do
+ActiveRecord::Schema.define(:version => 20130601102957) do
 
   create_table "entries", :force => true do |t|
     t.string   "content"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130518002049) do
     t.datetime "updated_at",   :null => false
     t.string   "key"
     t.string   "secret"
+    t.boolean  "oauth_flg"
   end
 
   create_table "users", :force => true do |t|
