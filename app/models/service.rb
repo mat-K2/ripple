@@ -4,7 +4,7 @@ class Service < ActiveRecord::Base
   has_many :users, :through => :make_users
   has_many :entries
 
-  validates_uniqueness_of :key, :scope => [:secret]
+  validates_uniqueness_of :key, :scope => [:secret], :allow_nil => true
 
   CATEGORY_LIST = %w(education life).freeze
 
