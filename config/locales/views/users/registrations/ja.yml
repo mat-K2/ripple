@@ -3,3 +3,6 @@ ja:
     registrations:
       new:
         title: 新規登録
+        helpers:
+          link:
+            sign_in: ログインする

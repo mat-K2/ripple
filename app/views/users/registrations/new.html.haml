@@ -17,3 +17,4 @@
 
   %br
   = f.submit t("helpers.submit.create"), :class => "btn btn-primary"
+  = link_to t(".helpers.link.sign_in"), new_user_session_path(:params => {:lang => params[:lang]})

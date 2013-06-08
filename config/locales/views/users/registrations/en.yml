@@ -3,3 +3,6 @@ en:
     registrations:
       new:
         title: Sign up
+        helpers:
+          link:
+            sign_in: Sign in

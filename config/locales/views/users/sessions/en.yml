@@ -1,0 +1,10 @@
+en:
+  users:
+    sessions:
+      new:
+        title: Sign in
+        helpers:
+          submit:
+            create: Sign in
+          link:
+            sign_up: Sign up

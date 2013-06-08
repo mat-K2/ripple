@@ -1,0 +1,10 @@
+ja:
+  users:
+    sessions:
+      new:
+        title: ログイン
+        helpers:
+          submit:
+            create: ログイン
+          link:
+            sign_up: 新規登録する
