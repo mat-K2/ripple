@@ -1,0 +1,6 @@
+en:
+  views:
+    defaults:
+      en     : English
+      ja     : Japanese
+      sign_in: Sign in
