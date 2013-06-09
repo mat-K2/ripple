@@ -13,6 +13,7 @@ class Make::ServicesController < ApplicationController
 
   def show
     @service = current_user.services.find(params[:id])
+    @entries = @service.entries.order("created_at DESC")
   end
 
   def create
