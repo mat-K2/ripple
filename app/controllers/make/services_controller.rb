@@ -19,10 +19,6 @@ class Make::ServicesController < ApplicationController
   def create
     @service = Service.new(params[:service])
     @service.make_users.build(:user_id => current_user.id)
-    if params[:oauth]
-      @service.key = [*0..9, *'a'..'z', *'A'..'Z'].sample(20).join
-      @service.secret = [*0..9, *'a'..'z', *'A'..'Z'].sample(40).join
-    end
 
     if @service.save
       redirect_to make_service_path(@service)
@@ -33,10 +29,6 @@ class Make::ServicesController < ApplicationController
 
   def update
     @service = current_user.services.find(params[:id])
-    if params[:oauth]
-      @service.key = [*0..9, *'a'..'z', *'A'..'Z'].sample(20).join
-      @service.secret = [*0..9, *'a'..'z', *'A'..'Z'].sample(40).join
-    end
 
     if @service.update_attributes(params[:service])
       redirect_to make_service_path(@service)

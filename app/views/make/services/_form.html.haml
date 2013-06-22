@@ -20,20 +20,5 @@
     .controls
       = f.select :category, Service::CATEGORY_LIST
   .control-group
-    = f.label :category, "oauth連携", :class => "control-label"
-    .controls
-      - if @service.key
-        oauth_key:
-        = @service.key
-        %br/
-        oauth_secret_key:
-        = @service.secret
-        %br/
-        = f.check_box :oauth_flg, {}, true, false
-        テスト完了
-      - else
-        = check_box_tag "oauth"
-        oauthキーを発行する
-  .control-group
     .controls
       = f.submit "登録", :class => "btn btn-primary"

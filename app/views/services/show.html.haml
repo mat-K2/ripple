@@ -7,40 +7,18 @@
     = image_tag "lift.jpeg"
   %h2= @service.name
 .row-fluid
-  .span3
-    .well
-      %p
-        - if @entry
-          = form_for @entry, :remote => true do |f|
-            = f.text_area :content, :class => "chat-box"
-            = f.hidden_field :service_id, :value => @service.id
-            = f.submit "フィードバックを送る", :class => "btn"
-        #entry_chat
-          = render "entry_chat"
-  .span9
-    .use-form
-      - if user_signed_in?
-        = form_tag service_path(@service), :method => "get" do
-          = hidden_field_tag :url, @service.url
-          = submit_tag "利用する", :class => "btn btn-primary"
-        - if @service.oauth_flg
-          = form_tag service_path(@service), :method => "get" do
-            = hidden_field_tag :url, @service.url
-            = hidden_field_tag :rippler, true
-            = submit_tag "ripplerのIDでログインする", :class => "btn btn-primary"
-      - else
-        = link_to "利用するにはログインが必要です", new_user_session_path
+  .use-form
+    %p
+      = link_to "アプリへ移動", @service.url, :class => "btn btn-primary", :target => "_blank"
 
-    .main-frame
-      - if @iframe_url
-        %iframe{:height => 1000, :width => "100%", :src => @iframe_url}
-      - else
-        %h5 サマリー
-        = @service.summary
-        %h5 紹介文
-        = @service.introduction
-        %h5 サービス提供者情報
-        - @make_users.each do |make_user|
-          = make_user.name
-
-= subscribe_to "/entries/new"
+  .main-frame
+    - if @iframe_url
+      %iframe{:height => 1000, :width => "100%", :src => @iframe_url}
+    - else
+      %h5 サマリー
+      = @service.summary
+      %h5 紹介文
+      = @service.introduction
+      %h5 サービス提供者情報
+      - @make_users.each do |make_user|
+        = make_user.name

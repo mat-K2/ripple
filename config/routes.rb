@@ -11,8 +11,6 @@ Rippler::Application.routes.draw do
 
   resources :mypage, :only => %w[index]
 
-  post 'api/oauth'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
