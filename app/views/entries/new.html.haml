@@ -1,0 +1,8 @@
+#rippler-embed-form
+  = form_for @entry do |f|
+    = f.text_area :content
+    = hidden_field_tag :url, @service_url
+    = f.submit "フィードバックを送る", :class => "btn"
+
+  ユーザ名
+  = current_user.name
