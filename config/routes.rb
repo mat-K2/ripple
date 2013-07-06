@@ -11,6 +11,8 @@ Rippler::Application.routes.draw do
 
   resources :mypage, :only => %w[index]
 
+  get "home" => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
