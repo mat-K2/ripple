@@ -1,7 +1,5 @@
 .page-header
   %h2 開発中のサービス一覧
-%p
-  = link_to "<< ホームに戻る", services_path, :class => "btn"
 
 - if flash[:notice]
   = flash[:notice]
@@ -25,4 +23,4 @@
           |
           = link_to "登録情報の変更", edit_make_service_path(service.id)
 
-= link_to "サービス新規登録", new_make_service_path, :class => "btn"
+= link_to "サービスの新規追加", new_make_service_path, :class => "btn"

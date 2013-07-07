@@ -24,7 +24,7 @@
   %thead
     %tr
       %th{:colspan => 4}
-        カテゴリ別
+        = "カテゴリ別（#{params[:category]}）"
   %tbody
     - @category_services.each do |service_arr|
       %tr

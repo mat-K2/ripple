@@ -14,6 +14,9 @@
           = link_to "Rippler", root_path, :class => "brand"
           .nav-collapse.collapse
             - if user_signed_in?
+              .navbar-text
+                %ul.nav
+                  %li= link_to "マイページ", mypage_path
               .navbar-text.pull-right
                 %ul.nav
                   %li.dropdown
