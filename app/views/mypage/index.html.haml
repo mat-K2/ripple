@@ -1,0 +1,11 @@
+%h1 マイページ
+
+.row
+  .span6
+    .mypage-layout
+      %h3 サービスユーザー様
+      = link_to "フィードバックを送る", services_path, :class => "btn btn-primary"
+  .span6
+    .mypage-layout
+      %h3 サービス開発者様
+      = link_to "フィードバックを貰う", make_services_path, :class => "btn btn-primary"

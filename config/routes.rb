@@ -12,6 +12,7 @@ Rippler::Application.routes.draw do
   resources :mypage, :only => %w[index]
 
   get "home" => "home#index"
+  get "mypage" => "mypage#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -62,7 +63,7 @@ Rippler::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'services#index'
+  root :to => 'mypage#index'
 
   # See how all your routes lay out with "rake routes"
 
