@@ -1,4 +1,7 @@
 #rippler-embed-form
+  - if flash[:notice]
+    = flash[:notice]
+
   = form_for @entry do |f|
     = f.text_area :content
     = hidden_field_tag :url, @service_url

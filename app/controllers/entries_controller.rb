@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class EntriesController < ApplicationController
   layout false
 
@@ -12,9 +13,10 @@ class EntriesController < ApplicationController
   def create
     @entry = current_user.entries.build(params[:entry])
     @entry.service = Service.find_by_url(fix_url(params[:url]))
-    @entry.save
-    respond_to do |format|
-      format.js
+    if @entry.save
+      redirect_to new_entry_path, :notice => "フィードバックを送りました。"
+    else
+      render "new"
     end
   end
 

@@ -12,7 +12,6 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'sass'
 gem 'devise'
-gem 'private_pub'
 gem "thin"
 
 group :production do
