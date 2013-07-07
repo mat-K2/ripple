@@ -3,6 +3,9 @@
 %p
   = link_to "<< ホームに戻る", services_path, :class => "btn"
 
+- if flash[:notice]
+  = flash[:notice]
+
 %table.table.table-bordered.table-striped
   %thead
     %tr

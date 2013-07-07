@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Make::ServicesController < ApplicationController
   def index
     @services = current_user.services
@@ -21,7 +22,7 @@ class Make::ServicesController < ApplicationController
     @service.make_users.build(:user_id => current_user.id)
 
     if @service.save
-      redirect_to make_service_path(@service)
+      redirect_to make_services_path, :notice => "サービスを追加しました。"
     else
       render "new"
     end
