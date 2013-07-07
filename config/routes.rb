@@ -1,15 +1,13 @@
 Rippler::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations", :sessions => "users/sessions" }
 
-  resources :services
+  resources :services, :only => %w[index show]
 
   namespace :make do
     resources :services
   end
 
-  resources :entries
-
-  resources :mypage, :only => %w[index]
+  resources :entries, :only => %w[new create]
 
   get "home" => "home#index"
   get "mypage" => "mypage#index"
