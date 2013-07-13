@@ -8,7 +8,7 @@ Rippler::Application.routes.draw do
     resources :entries, :only => %w[update]
   end
 
-  resources :entries, :only => %w[new create]
+  resources :entries, :only => %w[index new create]
 
   get "home" => "home#index"
   get "mypage" => "mypage#index"

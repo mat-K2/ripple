@@ -1,0 +1,15 @@
+.page-header
+  %h2 送ったフィードバック一覧
+
+%table.table.table-bordered.table-striped
+  %thead
+    %tr
+      %th サービス名
+      %th 内容
+      %th 承認状況
+  %tbody
+    - @entries.each do |entry|
+      %tr
+        %td= entry.service.name
+        %td= entry.content
+        %td= entry.approval_status

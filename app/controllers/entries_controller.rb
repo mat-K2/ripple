@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 class EntriesController < ApplicationController
-  layout false
+  layout false, :only => %w[new create]
 
   skip_before_filter :authenticate_user!
   before_filter :entry_authenticate_user!
+
+  def index
+    @entries = current_user.entries.order("created_at DESC")
+  end
 
   def new
     @entry = current_user.entries.build
