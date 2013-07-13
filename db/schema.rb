@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622055313) do
+ActiveRecord::Schema.define(:version => 20130713052621) do
 
   create_table "entries", :force => true do |t|
     t.string   "content"
     t.integer  "service_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.boolean  "approve_flg"
   end
 
   create_table "make_users", :force => true do |t|

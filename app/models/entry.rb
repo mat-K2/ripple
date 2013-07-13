@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :content, :service_id
+  attr_accessible :content, :service_id, :approve_flg
   belongs_to :user
   belongs_to :service
 

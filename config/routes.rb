@@ -5,6 +5,7 @@ Rippler::Application.routes.draw do
 
   namespace :make do
     resources :services
+    resources :entries, :only => %w[update]
   end
 
   resources :entries, :only => %w[new create]

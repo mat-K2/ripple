@@ -3,7 +3,7 @@
 %p
   = link_to "<< 開発中のサービス一覧に戻る", make_services_path, :class => "btn"
 
-%table.table.table-bordered.back-white
+%table.table.table-bordered.table-striped
   %tbody
     - @entries.each do |entry|
       %tr.feedback-box
@@ -13,3 +13,11 @@
           .feedback-user
             = entry.user_name
             = feedback_time(entry.created_at)
+        %td
+          - if entry.approve_flg
+            承認済み
+          - else
+            = form_for ["make", entry] do |f|
+              = hidden_field_tag :service_id, params[:id]
+              = f.hidden_field :approve_flg, :value => true
+              = f.submit "承認する", :class => "btn btn-primary"
