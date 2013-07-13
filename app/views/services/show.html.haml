@@ -12,13 +12,10 @@
       = link_to "アプリへ移動", @service.url, :class => "btn btn-primary", :target => "_blank"
 
   .main-frame
-    - if @iframe_url
-      %iframe{:height => 1000, :width => "100%", :src => @iframe_url}
-    - else
-      %h5 サマリー
-      = @service.summary
-      %h5 紹介文
-      = @service.introduction
-      %h5 サービス提供者情報
-      - @make_users.each do |make_user|
-        = make_user.name
+    %h5 サマリー
+    = @service.summary
+    %h5 紹介文
+    = @service.introduction
+    %h5 サービス提供者情報
+    - @make_users.each do |make_user|
+      = make_user.name
