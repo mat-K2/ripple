@@ -25,6 +25,7 @@
     %tr
       %th{:colspan => 4}
         = "カテゴリ別（#{params[:category]}）"
+        = link_to "全カテゴリ", services_path
   %tbody
     - @category_services.each do |service_arr|
       %tr

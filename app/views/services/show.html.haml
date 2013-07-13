@@ -6,16 +6,16 @@
   - else
     = image_tag "lift.jpeg"
   %h2= @service.name
-.row-fluid
-  .use-form
-    %p
-      = link_to "アプリへ移動", @service.url, :class => "btn btn-primary", :target => "_blank"
+  .service-link
+    = link_to "アプリへ移動", @service.url, :class => "btn btn-primary", :target => "_blank"
 
-  .main-frame
-    %h5 サマリー
-    = @service.summary
-    %h5 紹介文
-    = @service.introduction
-    %h5 サービス提供者情報
-    - @make_users.each do |make_user|
-      = make_user.name
+%p
+  = link_to "<< 前の画面に戻る", :back, :class => "btn"
+.main-frame
+  %h5 サマリー
+  = @service.summary
+  %h5 紹介文
+  = @service.introduction
+  %h5 サービス提供者情報
+  - @make_users.each do |make_user|
+    = make_user.name
