@@ -4,7 +4,9 @@
 .row
   .span6
     .mypage-layout
-      %h3= t('views.my_page.users.name')
+      %h3
+        = t('views.my_page.users.name')
+        = "(#{@approve_entry_count})"
       = link_to t('views.my_page.users.action'), services_path, :class => "btn btn-primary"
       = link_to t('views.entries.title'), entries_path, :class => "btn"
   .span6
