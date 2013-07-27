@@ -13,5 +13,9 @@
     .controls
       = f.text_field :name
   .control-group
+    = f.label :locale, :class => "control-label"
+    .controls
+      = f.select :locale, [["英語", "en"], ["日本語", "ja"]]
+  .control-group
     .controls
       = f.submit "登録", :class => "btn btn-primary"
