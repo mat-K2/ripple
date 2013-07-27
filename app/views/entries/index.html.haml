@@ -1,11 +1,11 @@
 .page-header
-  %h2 送ったフィードバック一覧
+  %h2= t('views.entries.title')
 
 %table.table.table-bordered.table-striped
   %thead
     %tr
-      %th サービス名
-      %th 内容
+      %th= t('views.services.detail.name')
+      %th= t('views.entries.content')
       %th 承認状況
   %tbody
     - @entries.each do |entry|

@@ -3,8 +3,7 @@
     %thead
       %tr
         %th{:colspan => 4}
-          - if current_user
-            = "#{current_user.name}さんへのおすすめサービス"
+          = t('views.services.recommend')
     %tbody
       %tr
         - @hot_services.each_with_index do |service, i|
@@ -18,14 +17,18 @@
               = link_to service.name, service_path(service)
             = service.summary
             %br
-            作成者：
+            = t('views.services.developer')
+            ：
             = service.users.map{|user| user.name}.join(",")
 %table.table.table-bordered
   %thead
     %tr
       %th{:colspan => 4}
-        = "カテゴリ別（#{params[:category]}）"
-        = link_to "全カテゴリ", services_path
+        = t('views.services.by_category')
+        （
+        = t("views.services.category.#{params[:category]}")
+        ）
+        = link_to t('views.services.all_category'), services_path
   %tbody
     - @category_services.each do |service_arr|
       %tr

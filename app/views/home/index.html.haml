@@ -11,9 +11,17 @@
     .navbar.navbar-top.home-header
       .container
         = link_to "Rippler", root_path, :class => "brand"
+        .pull-right
+          %ul.nav
+            %li.dropdown
+              = link_to view_select_language, "#", { :class => "dropdown-toggle", "data-toggle" => "dropdown" }
+              %ul{ :class => "dropdown-menu", :role => "menu", "aria-labelledby" => "dLabel" }
+                %li
+                  - ["ja", "en"].each do |lang|
+                    = link_to t("views.commons.#{lang}"), request.path + "?lang=#{lang}"
     .home-introduction
       .container
-        = link_to "ログイン", "#myModal", :class => "btn btn-primary", "data-toggle" => "modal"
+        = link_to t('views.commons.sign_in'), "#myModal", :class => "btn btn-primary", "data-toggle" => "modal"
         %div{ :id => "myModal", :class => "modal hide fade", :tabindex => "-1", :role => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true", :style => "display: none;" }
           .modal-header
             %button{ :type => "button", :class => "close", "data-dismiss" => "modal", "aria-hidden" => "true" }

@@ -1,13 +1,13 @@
 .page-header
-  %h2 マイページ
+  %h2= t('views.my_page.title')
 
 .row
   .span6
     .mypage-layout
-      %h3 サービスユーザー様
-      = link_to "フィードバックを送る", services_path, :class => "btn btn-primary"
-      = link_to "送ったフィードバックの確認", entries_path, :class => "btn"
+      %h3= t('views.my_page.users.name')
+      = link_to t('views.my_page.users.action'), services_path, :class => "btn btn-primary"
+      = link_to t('views.entries.title'), entries_path, :class => "btn"
   .span6
     .mypage-layout
-      %h3 サービス開発者様
-      = link_to "フィードバックを貰う", make_services_path, :class => "btn btn-primary"
+      %h3= t('views.my_page.developers.name')
+      = link_to t('views.my_page.developers.action'), make_services_path, :class => "btn btn-primary"

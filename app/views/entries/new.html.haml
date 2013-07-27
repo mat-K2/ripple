@@ -5,7 +5,7 @@
   = form_for @entry do |f|
     = f.text_area :content
     = hidden_field_tag :url, @service_url
-    = f.submit "フィードバックを送る", :class => "btn"
+    = f.submit t('views.my_page.users.action'), :class => "btn"
 
   ユーザ名
   = current_user.name

@@ -1,5 +1,5 @@
 .page-header
-  %h2 開発中のサービス一覧
+  %h2= t('views.services.list')
 
 - if flash[:notice]
   = flash[:notice]
@@ -8,7 +8,7 @@
   %thead
     %tr
       %th #
-      %th サービス名
+      %th= t('views.services.detail.name')
       %th URL
       %th
 
@@ -21,6 +21,6 @@
         %td
           = link_to "フィードバックの確認・承認", make_service_path(service.id)
           |
-          = link_to "登録情報の変更", edit_make_service_path(service.id)
+          = link_to t('views.services.edit.title'), edit_make_service_path(service.id)
 
-= link_to "サービスの新規追加", new_make_service_path, :class => "btn"
+= link_to t('views.services.new.title'), new_make_service_path, :class => "btn"

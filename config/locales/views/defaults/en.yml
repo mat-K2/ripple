@@ -1,6 +1,29 @@
 en:
   views:
-    defaults:
+    commons:
       en     : English
       ja     : Japanese
-      sign_in: Sign in
+      back   : Go Back
+    my_page:
+      title  : My Page
+      users:
+        name: User
+        action: Send Feedback
+        secondary_action: Confirm Feedback
+      developers:
+        name: Developer
+        action: Get Feedback
+    users:
+      edit:
+        title: Edit Profile
+    services:
+      recommend: Recommends for you
+      list: List of Services
+      detail:
+        name: Service Name
+      edit:
+        title: Edit Service Profile
+      new:
+        title: Sign up Service
+    entries:
+      title: My Feedback

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def view_select_language
-    t("views.defaults.language") + ": " +  t("views.defaults.#{I18n.locale || I18n.default_locale}")
+    t('views.commons.language') + ': ' +  t("views.commons.#{I18n.locale || I18n.default_locale}")
   end
 
   def resource

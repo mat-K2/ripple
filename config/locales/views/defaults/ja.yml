@@ -1,7 +1,50 @@
 ja:
   views:
-    defaults:
+    commons:
       language: 言語
       en      : 英語
       ja      : 日本語
       sign_in : ログイン
+      sign_out: ログアウト
+      back    : 前の画面に戻る
+    my_page:
+      title   : マイページ
+      users:
+        name: ユーザー様
+        action: フィードバックを送る
+        secondary_action: 送ったフィードバックの確認
+      developers:
+        name: 開発者様
+        action: フィードバックを貰う
+    users:
+      edit:
+        title : ユーザ情報の変更
+    services:
+      recommend: おすすめサービス
+      developer: 作成者
+      by_category: カテゴリ別
+      all_category: 全カテゴリ
+      list: 開発中のサービス一覧
+      category:
+        education: 教育
+        life: 生活
+        game: ゲーム
+        business: ビジネス
+        music: 音楽
+        weather: 天気
+        traveling: 旅行
+        work_efficiency: 仕事効率化
+        finance: ファイナンス
+      detail:
+        experience: 利用する
+        summary: サマリー
+        introduction: 紹介文
+        name: サービス名
+        category: カテゴリー
+      edit:
+        title: 登録情報の変更
+      new:
+        title: サービスの新規追加
+    entries:
+      title: フィードバック一覧
+      content: 内容

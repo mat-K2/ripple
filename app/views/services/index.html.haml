@@ -7,8 +7,7 @@
         %thead
           %tr
             %th{:colspan => 4}
-              - if current_user
-                = "#{current_user.name}さんへのおすすめサービス"
+              = t('views.services.recommend')
         %tbody
           %tr
             - @hot_services.each_with_index do |service, i|
@@ -22,47 +21,48 @@
                   = link_to service.name, service_path(service)
                 = service.summary
                 %br
-                作成者：
+                = t('views.services.developer')
+                ：
                 = service.users.map{|user| user.name}.join(",")
     - else
       .hero-unit
         %h2 New services! New experiences!
         %p
           まだ世の中に広まっていないサービスを通じて、未知の体験ができるプラットフォームです。
-        = link_to t('views.defaults.sign_in'), new_user_session_path(:params => {:lang => params[:lang]}), :class => "btn btn-primary"
+        = link_to t('views.commons.sign_in'), new_user_session_path(:params => {:lang => params[:lang]}), :class => "btn btn-primary"
     %table.table.table-bordered
       %thead
         %tr
           %th{:colspan => 4}
-            カテゴリ別
+            = t('views.services.by_category')
       %tbody
         %tr
           %td.table-divided
             = image_tag "education.jpeg"
-            = link_to "教育", services_path(:category => "education")
+            = link_to t('views.services.category.education'), services_path(:category => "education")
           %td.table-divided
             = image_tag "life.jpeg"
-            = link_to "生活", services_path(:category => "life")
+            = link_to t('views.services.category.life'), services_path(:category => "life")
           %td.table-divided
             = image_tag "game.jpeg"
-            = link_to "ゲーム", services_path(:category => "game")
+            = link_to t('views.services.category.game'), services_path(:category => "game")
           %td.table-divided
             = image_tag "business.jpeg"
-            = link_to "ビジネス", services_path(:category => "business")
+            = link_to t('views.services.category.business'), services_path(:category => "business")
         %tr
           %td.table-divided
             = image_tag "music.jpeg"
-            = link_to "ミュージック", services_path(:category => "music")
+            = link_to t('views.services.category.music'), services_path(:category => "music")
           %td.table-divided
             = image_tag "weather.jpeg"
-            = link_to "天気", services_path(:category => "weather")
+            = link_to t('views.services.category.weather'), services_path(:category => "weather")
           %td.table-divided
             = image_tag "travel.jpeg"
-            = link_to "旅行", services_path(:category => "travel")
+            = link_to t('views.services.category.traveling'), services_path(:category => "traveling")
           %td.table-divided
             = image_tag "efficient.jpeg"
-            = link_to "仕事効率化", services_path(:category => "efficient")
+            = link_to t('views.services.category.work_efficiency'), services_path(:category => "work_efficiency")
         %tr
           %td.table-divided
             = image_tag "finance.jpeg"
-            = link_to "ファイナンス", services_path(:category => "finance")
+            = link_to t('views.services.category.finance'), services_path(:category => "finance")
